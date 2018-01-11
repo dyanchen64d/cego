@@ -1,0 +1,16 @@
+<view class="search-list">
+  <view wx:for="{{data}}" wx:key class="search-item">
+    <image src="{{item.src}}" mode="aspectFill" class="item-image"></image>
+    <view class="item-wrapper">
+      <text>NAME: {{item.name}}</text>
+      <text><text style="color:red;">ATK</text>: {{item.atk}}</text>
+      <text><text style="color:blue;">HP</text>: {{item.hp}}</text>
+      <text><text style="color:red;">ATK_MAX</text>: {{item.atkmax}}</text>
+      <text><text style="color:blue;">HP_MAX</text>: {{item.hpmax}}</text>
+    </view>
+  </view>
+  <view class="search-icon">
+    <icon type="search" size="30" color="grey" bindtap="showPane"/>
+  </view>
+  <component-pane pane-right-distance="{{paneRightDistance}}"></component-pane>
+</view>

@@ -1,0 +1,13 @@
+<view class="fgoermap">
+  <map id="map"
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+    scale="16"
+    bindcontroltap="controltap"
+    markers="{{markers}}"
+    controls="{{controls}}"
+    bindmarkertap="markertap"
+    bindregionchange="regionchange"
+    show-location></map>
+    <view class="profile" bindtap="gotoProfile">Set Profile</view>
+</view>

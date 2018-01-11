@@ -1,0 +1,10 @@
+/**index.wxss**/
+image {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 120rpx;
+}
+
+.usermotto {
+  margin-top: 300rpx;
+}

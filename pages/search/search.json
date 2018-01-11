@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Search",
+  "usingComponents": {
+    "component-pane": "/components/pane/pane"
+  }
+}

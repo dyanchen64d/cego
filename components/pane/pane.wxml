@@ -1,0 +1,10 @@
+<view class="inner" style="right:{{paneRightDistance}}">
+  <view class="space" bindtap="closePane"></view>
+  <view class="pane">
+    <radio-group class="" bindchange="radioChange">
+      <radio value="hp" checked="false"/>仅HP
+      <radio value="atk" checked="false"/>仅ATK
+      <radio value="hp_atk" checked="false"/>HP&ATK
+    </radio-group>
+  </view>
+</view>

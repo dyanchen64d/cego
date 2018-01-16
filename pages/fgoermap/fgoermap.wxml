@@ -8,6 +8,18 @@
     controls="{{controls}}"
     bindmarkertap="markertap"
     bindregionchange="regionchange"
-    show-location></map>
-    <view class="profile" bindtap="gotoProfile">Set Profile</view>
+    show-location>
+  </map>
+  <view class="profile" bindtap="setProfile">Set Profile</view>
+  <view id="liuyan" class="leavingMessage" style="top:{{leavingMessageTop}};" bindtap="closeLeavingMessage">
+    <view class="messageBox">
+      <textarea
+        class="messageInput"
+        placeholder="留言（60字）"
+        maxlength="60"
+        bindinput="messageInput">
+      </textarea>
+      <view class="messageSubmit" bindtap="messageSubmit">提交</view>
+    </view>
+  </view>
 </view>

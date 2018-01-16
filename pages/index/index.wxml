@@ -4,7 +4,8 @@
     <image src="/assets/craft_essence_703.jpg" mode="aspectFill" binderror="" bindload=""></image>
   </view>
   <view class="usermotto">
+    <button class="" size="default" type="primary" bindtap="gotoFGOerSearch">寻找咕哒子</button>
+    <button class="">Coming Soon!</button>
     <!-- <button bindtap="gotoCESearch" class="botton" size="default">礼装查询</button> -->
-    <button class="user-motto" bindtap="gotoFGOerSearch">寻找咕哒子</button>
   </view>
 </view>

@@ -8,3 +8,8 @@ image {
 .usermotto {
   margin-top: 300rpx;
 }
+
+button {
+  width: 400rpx;
+  margin-bottom: 10px;
+}

@@ -2,8 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/search/search",
-    "pages/fgoermap/fgoermap",
-    "pages/profile/profile"
+    "pages/fgoermap/fgoermap"
   ],
   "window":{
     "backgroundTextStyle":"light",

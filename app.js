@@ -1,4 +1,5 @@
 const config = require('./config.js')
+const wxApi = require('./utils/wxrequest.js')
 
 //app.js
 App({
@@ -8,26 +9,17 @@ App({
     //     console.log(res);
     //   }
     // })
-    wx.login({
-      success: function(res) {
-        if (res.code) {
-          console.log(res.code);
-          //发起网络请求
-          wx.request({
-            url: config.domain + '/getSessionKeyAndOpenId',
-            method: 'POST',
-            data: {
-              code: res.code
-            },
-            header: {
-              'content-type': 'application/json' // 默认值
-            }
-          })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
+    wx.checkSession({
+      success: function(){
+        //session 未过期，并且在本生命周期一直有效
+        console.log('wx.checkSession success');
+      },
+      fail: function(){
+        //登录态过期
+        wxApi.wxLogin()
       }
-    });
+    })
+    // wxApi.wxLogin()
   },
   globalData: {
     userInfo: null

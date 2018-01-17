@@ -3,21 +3,7 @@ const request = require('../../utils/wxrequest.js')
 
 Page({
   data: {
-    markers: [{
-      // iconPath: '/assets/craft_essence_702.jpg',
-      id: 0,
-      latitude: 31.187577,
-      longitude: 121.525088,
-      width: 40,
-      height: 40,
-      callout: {
-        content: '这里刚入坑不久的非洲萌新_(:з」∠)_求加好友w',
-        color: 'red',
-        bgColor: 'yellow',
-        display: 'BYCLICK',
-        textAlign: 'center'
-      }
-    }],
+    markers: [],
     controls: [{
       id: 1,
       iconPath: '/assets/location.png',
@@ -33,8 +19,8 @@ Page({
     longitude: '',
     markedLocation: {},
     message: '',
-    leavingMessageTop: '-100vh',
-    submitting: false
+    profileWrapperLeft: '-100%',
+    inputValue: ''
   },
   regionchange(e) {
     // console.log(e.type)
@@ -53,6 +39,8 @@ Page({
     this.mapCtx = wx.createMapContext('map')
   },
   onLoad: function () {
+    let _this = this;
+
     map.getCurrLocation().
       then((res) => {
         this.setData({
@@ -60,6 +48,33 @@ Page({
           longitude: res.longitude
         })
       })
+
+    request.wxRequest({
+      path: '/get-locations',
+      method: 'POST',
+      data: {},
+      cb (res) {
+        // console.log(res.data);
+        let markers = res.data.map((item, index) => {
+          return {
+            // path: '',
+            id: index,
+            latitude: item.latitude,
+            longitude: item.longitude,
+            width: 40,
+            height: 40,
+            callout: {
+              content: item.intro,
+              color: 'red',
+              bgColor: 'yellow',
+              display: 'BYCLICK',
+              textAlign: 'center'
+            }
+          }
+        })
+        _this.setData({ markers: markers })
+      }
+    })
   },
   setProfile: function () {
     let _this = this;
@@ -86,9 +101,7 @@ Page({
           markedLocation: res
         }, function () {
           // console.log(_this.data.markedLocation);
-          _this.setData({
-            leavingMessageTop: 0
-          })
+          _this.setData({ profileWrapperLeft: '0' })
         })
       })
   },
@@ -101,8 +114,7 @@ Page({
   messageSubmit () {
     // console.log(this.data.message);
     let _this = this
-    if (_this.data.submitting) return;
-    _this.data.submitting = true
+    wx.showLoading({ mask: true, title: '保存中..' })
 
     request.wxRequest({
       path: '/set-profile',
@@ -112,6 +124,7 @@ Page({
         intro: this.data.message
       },
       cb (res) {
+        wx.hideLoading();
         if (res.data === 'success') {
           wx.showModal({
             title: '已经提交',
@@ -119,19 +132,12 @@ Page({
             showCancel: false,
             success (res) {
               if (res.confirm) {
-                _this.setData({ leavingMessageTop: '-100vh' }, () => {
-                  _this.data.submitting = false
-                })
+                _this.setData({ profileWrapperLeft: '-100%', inputValue: '' })
               }
             }
           })
         }
       }
     })
-  },
-  closeLeavingMessage (e) {
-    if (e.target.id === 'liuyan') {
-      this.setData({ leavingMessageTop: '-100vh' })
-    }
   }
 })

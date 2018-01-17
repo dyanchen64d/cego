@@ -1,4 +1,26 @@
 <view class="fgoermap">
+  <view class="profileWrapper" style="left:{{profileWrapperLeft}}">
+    <view class="profileLeft" bindtap="">
+        <input
+          class="messageInput"
+          value="{{inputValue}}"
+          type="text"
+          placeholder="留言"
+          placeholder-style=""
+          placeholder-class=""
+          maxlength="20"
+          bindchange=""
+          bindinput="messageInput"
+          bindfocus=""
+          bindblur=""
+          cursor-spacing="1"
+        />
+        <view class="messageSubmit" bindtap="messageSubmit">
+          Submit
+        </view>
+    </view>
+    <view class="profile" bindtap="setProfile">Set Profile</view>
+  </view>
   <map id="map"
     longitude="{{longitude}}"
     latitude="{{latitude}}"
@@ -10,16 +32,4 @@
     bindregionchange="regionchange"
     show-location>
   </map>
-  <view class="profile" bindtap="setProfile">Set Profile</view>
-  <view id="liuyan" class="leavingMessage" style="top:{{leavingMessageTop}};" bindtap="closeLeavingMessage">
-    <view class="messageBox">
-      <textarea
-        class="messageInput"
-        placeholder="留言（60字）"
-        maxlength="60"
-        bindinput="messageInput">
-      </textarea>
-      <view class="messageSubmit" bindtap="messageSubmit">提交</view>
-    </view>
-  </view>
 </view>

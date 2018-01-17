@@ -1,8 +1,9 @@
 .fgoermap {
   width: 100%;
-  height: 100vh;
   display: flex;
+  height: 100vh;
   flex-direction: column;
+  overflow: hidden;
 }
 
 #map {
@@ -10,51 +11,42 @@
   flex: 1;
 }
 
-.profile {
-  width: 100%;
+.profileWrapper {
+  position: relative;
+  width: 200%;
   height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  transition: left .4s;
+}
+
+.profileLeft {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  width: 50%;
+  height: 100%;
   background-color: #576b95;
   color: white;
   line-height: 100rpx;
   text-align: center;
 }
 
-.leavingMessage {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: none;
-  position: absolute;
-  transition: top .4s;
-}
-
-.messageBox {
-  width: 500rpx;
-  height: 400rpx;
-  background-color: white;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #353535;
-  overflow: hidden;
-}
-
 .messageInput {
-  width: 100%;
+  margin: 6px;
   flex: 1;
-  padding: 8px;
-  text-align: justify;
-  box-sizing: border-box;
 }
 
 .messageSubmit {
-  width: 100%;
-  height: 80rpx;
+  width: 200rpx;
+  height: 100%;
   background-color: #353535;
   color: white;
-  text-align: center;
-  line-height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

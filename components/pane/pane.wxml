@@ -1,10 +1,76 @@
 <view class="inner" style="right:{{paneRightDistance}}">
   <view class="space" bindtap="closePane"></view>
   <view class="pane">
-    <radio-group class="" bindchange="radioChange">
-      <radio value="hp" checked="false"/>仅HP
-      <radio value="atk" checked="false"/>仅ATK
-      <radio value="hp_atk" checked="false"/>HP&ATK
-    </radio-group>
+    <view class="selections" style="width:100%;flex:1">
+
+      <view class="select-no">
+        <view class="title">No.</view>
+        <view class="all-padding" style="">
+          <input value="{{}}" type="text" maxlength="3" style="border:solid 1px #888888;" bindinput="noInput"/>
+        </view>
+      </view>
+
+      <view class="select-atkhp">
+        <view class="title">Atk Hp</view>
+        <view class="all-padding" style="display:flex;justify-content:space-between;flex-wrap:wrap;">
+          <view class="selectButton {{atkhp.all}}" data-type="all" bindtap="atkhpSelectAll">
+            全部
+          </view>
+          <view class="selectButton {{atkhp.atk}}" data-type="atk" bindtap="atkhpSelectAtk">
+            纯攻击
+          </view>
+          <view class="selectButton {{atkhp.hp}}" data-type="hp" bindtap="atkhpSelectHp">
+            纯血量
+          </view>
+          <view class="selectButton {{atkhp.atkhp}}" data-type="atkhp" bindtap="atkhpSelectAtkHp">
+            攻击与血量
+          </view>
+        </view>
+      </view>
+
+      <view class="select-cost">
+        <view class="title">Rarity</view>
+        <view class="all-padding" style="display:flex;justify-content:space-between;flex-wrap:wrap;">
+          <view class="selectButton {{rarity.all}}" bindtap="raritySelectAll">
+            全部
+          </view>
+          <view class="selectButton {{rarity.yichi}}" bindtap="raritySelectYichi">
+            1
+          </view>
+          <view class="selectButton {{rarity.ni}}" bindtap="raritySelectNi">
+            2
+          </view>
+          <view class="selectButton {{rarity.san}}" bindtap="raritySelectSan">
+            3
+          </view>
+          <view class="selectButton {{rarity.yon}}" bindtap="raritySelectYon">
+            4
+          </view>
+          <view class="selectButton {{rarity.go}}" bindtap="raritySelectGo">
+            5
+          </view>
+        </view>
+      </view>
+
+      <view class="select-effect">
+        <view class="title">Effect</view>
+        <view class="all-padding" style="display:flex;">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="selectButton {{indexStyle}}" style="margin-right:20px;">
+              {{array[index]}}
+            </view>
+          </picker>
+          <picker bindchange="bindPickerChange2" value="{{index}}" range="{{array}}">
+            <view class="selectButton {{indexStyle2}}">
+              {{array[index2]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="operations" style="width:100%;height:100rpx;display:flex;color:#fff;">
+      <view class="reset flex-center" style="flex:0.5;background-color:#b2b2b2" bindtap="reset">重置</view>
+      <view class="submit flex-center" style="flex:0.5;background-color:#576b95;" bindtap="submit">确定</view>
+    </view>
   </view>
 </view>

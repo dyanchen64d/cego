@@ -1,16 +1,51 @@
-<view class="search-list">
-  <view wx:for="{{data}}" wx:key class="search-item">
-    <image src="{{item.src}}" mode="aspectFill" class="item-image"></image>
-    <view class="item-wrapper">
-      <text>NAME: {{item.name}}</text>
-      <text><text style="color:red;">ATK</text>: {{item.atk}}</text>
-      <text><text style="color:blue;">HP</text>: {{item.hp}}</text>
-      <text><text style="color:red;">ATK_MAX</text>: {{item.atkmax}}</text>
-      <text><text style="color:blue;">HP_MAX</text>: {{item.hpmax}}</text>
+<scroll-view class="search-list" style="display:flex;flex-direction:column;height:100vh;"
+  scroll-y bindscrolltolower="scrollToLower" enable-back-to-top>
+  <view wx:for="{{celist}}" wx:key class="search-item" style="font-size:22rpx;">
+    <view class="item-intro" style="display:flex;align-items:flex-end;">
+      <image src="{{item.src}}" mode="aspectFill" class="item-image" style="width:150rpx;height:150rpx;"></image>
+      <view class="item-wrapper" style="flex:1;display:flex;flex-direction:column;">
+        <view class="item-name" style="flex:1;display:flex;flex-direction:column;text-align: center;">
+          <text>{{item.name_jp}}</text>
+          <text>{{item.name_en}}</text>
+        </view>
+        <view class="">
+          <view class="item-no-row" style="display:flex;text-align:center;">
+            <text style="width:10%">No.</text>
+            <text style="width:15%;">{{item.no}}</text>
+            <text style="width:15%">Rarity</text>
+            <text style="width:30%;">{{item.rarity}}</text>
+            <text style="width:15%">Cost</text>
+            <text style="width:15%;">{{item.cost}}</text>
+          </view>
+          <view class="item-atk-row" style="display:flex;text-align:center;">
+            <text style="background-color:#e64340;color:#fff;width:20%">Atk</text>
+            <text style="width:30%">{{item.atk}}</text>
+            <text style="background-color:#e64340;color:#fff;width:20%">Max Atk</text>
+            <text style="width:30%">{{item.maxatk}}</text>
+          </view>
+          <view class="item-hp-row" style="display:flex;text-align:center;">
+            <text style="background-color:#576b95;color:#fff;width:20%">Hp</text>
+            <text style="width:30%">{{item.hp}}</text>
+            <text style="background-color:#576b95;color:#fff;width:20%">Max Hp</text>
+            <text style="width:30%">{{item.maxhp}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item-detail">
+      <view class="row-effect" style="display:flex;border-bottom:1px solid #888888;">
+        <text style="flex:1;text-align:center;">{{item.effect}}</text>
+      </view>
+      <view wx:if="{{item.maxlimit}}" class="row-maxlimit" style="display:flex;border-bottom:1px solid #888888;">
+        <text style="flex:1;text-align:center;">{{item.maxlimit}}</text>
+      </view>
+      <view wx:if="{{item.details}}" class="row-details" style="display:flex;border-bottom:1px solid #888888;">
+        <text style="flex:1;text-align:center;">{{item.details}}</text>
+      </view>
     </view>
   </view>
-  <view class="search-icon">
+  <view class="search-icon" style="position:fixed;right:30px;bottom:30px;">
     <icon type="search" size="30" color="grey" bindtap="showPane"/>
   </view>
-  <component-pane pane-right-distance="{{paneRightDistance}}"></component-pane>
-</view>
+  <component-pane pane-right-distance="{{paneRightDistance}}" bind:querysumbit="querySumbit"></component-pane>
+</scroll-view>

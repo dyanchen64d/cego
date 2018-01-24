@@ -50,7 +50,7 @@ Page({
       })
 
     request.wxRequest({
-      path: '/get-locations',
+      path: '/location/get-locations',
       method: 'POST',
       data: {},
       cb (res) {
@@ -117,7 +117,7 @@ Page({
     wx.showLoading({ mask: true, title: '保存中..' })
 
     request.wxRequest({
-      path: '/set-profile',
+      path: '/location/set-profile',
       method: 'POST',
       data: {
         location: this.data.markedLocation,

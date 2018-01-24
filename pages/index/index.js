@@ -1,5 +1,5 @@
-//index.js
-//获取应用实例
+const request = require('../../utils/wxrequest.js')
+
 const app = getApp()
 
 Page({

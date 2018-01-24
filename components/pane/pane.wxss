@@ -8,12 +8,51 @@
   transition: right .4s;
 }
 
-.pane {
-  flex: 0.8;
-  background-color: white;
+.space {
+  flex: 0.1;
+  background-color: none;
 }
 
-.space {
-  flex: 0.2;
-  background-color: none;
+.pane {
+  flex: 0.9;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #353535;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.selectButton {
+  padding: 0 10px 0 10px;
+  height: 60rpx;
+  border-radius: 6px;
+  border: 1px solid #353535;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.all-padding {
+  padding: 10px;
+}
+
+.selectedButton {
+  background-color: #e64340;
+  color: white;
+  border: none;
+  border: 1px solid #e64340;
 }

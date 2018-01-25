@@ -6,7 +6,7 @@ image {
 }
 
 .usermotto {
-  margin-top: 200rpx;
+  margin-top: 400rpx;
 }
 
 button {

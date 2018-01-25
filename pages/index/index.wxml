@@ -5,6 +5,6 @@
   </view>
   <view class="usermotto">
     <button class="botton" size="default" type="primary"  bindtap="gotoCESearch">礼装查询</button>
-    <button class="" size="default" type="" bindtap="">搞事情中..</button>
+    <!-- <button class="" size="default" type="" bindtap="">搞事情中..</button> -->
   </view>
 </view>

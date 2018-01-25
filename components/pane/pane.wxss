@@ -31,7 +31,7 @@
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
-  background-color: #353535;
+  background-color: #576b95;
   color: #fff;
   font-size: 32rpx;
 }

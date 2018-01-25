@@ -23,7 +23,8 @@ Component({
       yon: '',
       go: ''
     },
-    no: ''
+    no: '',
+    inputValue: ''
   },
   methods: {
     closePane: function () {
@@ -83,14 +84,13 @@ Component({
         rarity: { all: '', yichi: '', ni: '', san: '', yon: 'selectedButton', go: '' }
       })
     },
-    costSelectGo () {
+    raritySelectGo () {
       this.setData({
-        cost: { all: '', yichi: '', ni: '', san: '', yon: '', go: 'selectedButton' }
+        rarity: { all: '', yichi: '', ni: '', san: '', yon: '', go: 'selectedButton' }
       })
     },
 
     submit () {
-
       let no = Number(this.data.no)
       if (isNaN(no)) {
         wx.showToast({
@@ -130,7 +130,8 @@ Component({
           yon: '',
           go: ''
         },
-        no: ''
+        no: '',
+        inputValue: ''
       })
     },
 

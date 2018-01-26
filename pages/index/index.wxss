@@ -1,15 +1,37 @@
-/**index.wxss**/
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
 image {
-  width: 240rpx;
-  height: 240rpx;
-  border-radius: 120rpx;
+  width: 100%;
+  flex: 1;
 }
 
 .usermotto {
-  margin-top: 400rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 400rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: repeat(2, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  padding: 2px;
 }
 
-button {
-  width: 400rpx;
-  margin-bottom: 10px;
+.griditem {
+  background-color: #09bb07;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noitem {
+  background-color: #888888;
+  color: #888888;
 }

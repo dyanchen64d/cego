@@ -3,27 +3,17 @@
   <view class="pane">
     <view class="selections" style="width:100%;flex:1">
 
-      <!-- <view class="select-no">
-        <view class="title">No.</view>
-        <view class="all-padding" style="">
-          <input value="{{inputValue}}" type="text" maxlength="3" style="border:solid 1px #888888;" bindinput="noInput"/>
-        </view>
-      </view> -->
-
       <view class="select-atkhp">
         <view class="title">Atk Hp</view>
         <view class="all-padding" style="display:flex;justify-content:space-between;flex-wrap:wrap;">
-          <view class="selectButton {{atkhp.all}}" data-type="all" bindtap="atkhpSelectAll">
-            全部
-          </view>
           <view class="selectButton {{atkhp.atk}}" data-type="atk" bindtap="atkhpSelectAtk">
             纯攻击
           </view>
-          <view class="selectButton {{atkhp.hp}}" data-type="hp" bindtap="atkhpSelectHp">
-            纯血量
-          </view>
           <view class="selectButton {{atkhp.atkhp}}" data-type="atkhp" bindtap="atkhpSelectAtkHp">
             攻击与血量
+          </view>
+          <view class="selectButton {{atkhp.hp}}" data-type="hp" bindtap="atkhpSelectHp">
+            纯血量
           </view>
         </view>
       </view>
@@ -31,23 +21,20 @@
       <view class="select-cost">
         <view class="title">Rarity</view>
         <view class="all-padding" style="display:flex;justify-content:space-between;flex-wrap:wrap;">
-          <view class="selectButton {{rarity.all}}" bindtap="raritySelectAll">
-            全部
-          </view>
-          <view class="selectButton {{rarity.yichi}}" bindtap="raritySelectYichi">
-            1
-          </view>
-          <view class="selectButton {{rarity.ni}}" bindtap="raritySelectNi">
-            2
-          </view>
-          <view class="selectButton {{rarity.san}}" bindtap="raritySelectSan">
-            3
+          <view class="selectButton morePadding {{rarity.go}}" bindtap="raritySelectGo">
+            五星
           </view>
           <view class="selectButton {{rarity.yon}}" bindtap="raritySelectYon">
-            4
+            四星
           </view>
-          <view class="selectButton {{rarity.go}}" bindtap="raritySelectGo">
-            5
+          <view class="selectButton {{rarity.san}}" bindtap="raritySelectSan">
+            三星
+          </view>
+          <view class="selectButton {{rarity.ni}}" bindtap="raritySelectNi">
+            二星
+          </view>
+          <view class="selectButton {{rarity.yichi}}" bindtap="raritySelectYichi">
+            一星
           </view>
         </view>
       </view>

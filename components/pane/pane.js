@@ -3,28 +3,25 @@ Component({
     paneRightDistance: String
   },
   data: {
-    // 'DEF', 'Debuff', 'Evade', 'Guts', 'Hit', 'Damage', 'Focus',, 'HP', 'ATK', 'Points', 'QP'
+    // 'DEF', 'Debuff', 'Evade', 'Guts', 'Hit',
+    // 'Damage', 'Focus',, 'HP', 'ATK', 'Points', 'QP'
     array: ['全部', 'Buster', 'Arts', 'Quick', 'NP', 'Critical'],
     index: 0,
     indexStyle: '',
     index2: 0,
     index2Style: '',
     atkhp: {
-      all: 'selectedButton',
-      atk: '',
+      atk: 'selectedButton',
       hp: '',
       atkhp: ''
     },
     rarity: {
-      all: 'selectedButton',
       yichi: '',
       ni: '',
       san: '',
       yon: '',
-      go: ''
-    },
-    no: '',
-    inputValue: ''
+      go: 'selectedButton'
+    }
   },
   methods: {
     closePane: function () {
@@ -38,76 +35,58 @@ Component({
       }
     },
 
-    atkhpSelectAll (e) {
-      this.setData({
-        atkhp: { all: 'selectedButton', atk: '', hp: '', atkhp: '' }
-      })
-    },
     atkhpSelectAtk (e) {
       this.setData({
-        atkhp: { all: '', atk: 'selectedButton', hp: '', atkhp: '' }
+        atkhp: { atk: 'selectedButton', hp: '', atkhp: '' }
       })
     },
     atkhpSelectHp (e) {
       this.setData({
-        atkhp: { all: '', atk: '', hp: 'selectedButton', atkhp: '' }
+        atkhp: { atk: '', hp: 'selectedButton', atkhp: '' }
       })
     },
     atkhpSelectAtkHp (e) {
       this.setData({
-        atkhp: { all: '', atk: '', hp: '', atkhp: 'selectedButton' }
+        atkhp: { atk: '', hp: '', atkhp: 'selectedButton' }
       })
     },
 
-    raritySelectAll () {
-      this.setData({
-        rarity: { all: 'selectedButton', yichi: '', ni: '', san: '', yon: '', go: '' }
-      })
-    },
     raritySelectYichi () {
       this.setData({
-        rarity: { all: '', yichi: 'selectedButton', ni: '', san: '', yon: '', go: '' }
+        rarity: { yichi: 'selectedButton', ni: '', san: '', yon: '', go: '' }
       })
     },
     raritySelectNi () {
       this.setData({
-        rarity: { all: '', yichi: '', ni: 'selectedButton', san: '', yon: '', go: '' }
+        rarity: { yichi: '', ni: 'selectedButton', san: '', yon: '', go: '' }
       })
     },
     raritySelectSan () {
       this.setData({
-        rarity: { all: '', yichi: '', ni: '', san: 'selectedButton', yon: '', go: '' }
+        rarity: { yichi: '', ni: '', san: 'selectedButton', yon: '', go: '' }
       })
     },
     raritySelectYon () {
       this.setData({
-        rarity: { all: '', yichi: '', ni: '', san: '', yon: 'selectedButton', go: '' }
+        rarity: { yichi: '', ni: '', san: '', yon: 'selectedButton', go: '' }
       })
     },
     raritySelectGo () {
       this.setData({
-        rarity: { all: '', yichi: '', ni: '', san: '', yon: '', go: 'selectedButton' }
+        rarity: { yichi: '', ni: '', san: '', yon: '', go: 'selectedButton' }
       })
     },
 
     submit () {
-      let no = Number(this.data.no)
-      if (isNaN(no)) {
-        wx.showToast({
-          title: '你输的都是些什么玩意？',
-          icon: 'none',
-          duration: 2000
-        })
-        return;
-      }
+      let effect1, effect2
+      effect1 = (this.data.array[this.data.index] === '全部') ? 'all' : this.data.array[this.data.index]
+      effect2 = (this.data.array[this.data.index2] === '全部') ? 'all' : this.data.array[this.data.index2]
 
-      let obj = {
+      this.triggerEvent('querysumbit', {
         atkhp: this.getStyledKey(this.data.atkhp),
         rarity: this.getStyledKey(this.data.rarity),
-        effect: [this.data.array[this.data.index], this.data.array[this.data.index2]],
-        no: no
-      }
-      this.triggerEvent('querysumbit', obj)
+        effect: effect1 + ',' + effect2
+      })
       this.setData({ paneRightDistance: '-100%' })
     },
     reset () {
@@ -117,21 +96,17 @@ Component({
         index2: 0,
         indexStyle2: '',
         atkhp: {
-          all: 'selectedButton',
-          atk: '',
+          atk: 'selectedButton',
           hp: '',
           atkhp: ''
         },
         rarity: {
-          all: 'selectedButton',
           yichi: '',
           ni: '',
           san: '',
           yon: '',
-          go: ''
-        },
-        no: '',
-        inputValue: ''
+          go: 'selectedButton'
+        }
       })
     },
 
@@ -152,11 +127,6 @@ Component({
       } else {
         this.setData({ indexStyle2: 'selectedButton' })
       }
-    },
-
-    noInput (e) {
-      // console.log(e.detail.value);
-      this.setData({ no: e.detail.value })
     }
   }
 })

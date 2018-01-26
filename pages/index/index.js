@@ -1,7 +1,5 @@
 const request = require('../../utils/wxrequest.js')
 
-const app = getApp()
-
 Page({
   data: {
     motto: ''

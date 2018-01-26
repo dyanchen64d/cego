@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <image src="/assets/craft_essence_703.jpg" mode="aspectFill" binderror="" bindload=""></image>
-  </view>
+  <image src="/assets/craft_essence_703.jpg" mode="aspectFill" binderror="" bindload=""></image>
   <view class="usermotto">
-    <button class="botton" size="default" type="primary"  bindtap="gotoCESearch">礼装查询</button>
-    <!-- <button class="" size="default" type="" bindtap="">搞事情中..</button> -->
+    <view class="griditem" bindtap="gotoCESearch">礼装查找</view>
+    <view class="griditem noitem">2</view>
+    <view class="griditem noitem">3</view>
+    <view class="griditem noitem">4</view>
   </view>
 </view>

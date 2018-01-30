@@ -2,7 +2,7 @@
 <view class="container">
   <image src="/assets/craft_essence_703.jpg" mode="aspectFill" binderror="" bindload=""></image>
   <view class="usermotto">
-    <view class="griditem" bindtap="gotoCESearch">礼装查找</view>
+    <view class="griditem" bindtap="gotoCESearch">礼装搜索</view>
     <view class="griditem noitem">2</view>
     <view class="griditem noitem">3</view>
     <view class="griditem noitem">4</view>
